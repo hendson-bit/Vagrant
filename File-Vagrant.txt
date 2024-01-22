@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "master" do |master|
+    master.vm.box = "generic/debian9"
+    master.vm.network "private_network", type: "dhcp"
+    master.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+    end
+  end
+
+  config.vm.define "slave1" do |slave1|
+    slave1.vm.box = "generic/debian9"
+    slave1.vm.network "private_network", type: "dhcp"
+    slave1.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+    end
+  end
+
+  config.vm.define "slave2" do |slave2|
+    slave2.vm.box = "generic/debian9"
+    slave2.vm.network "private_network", type: "dhcp"
+    slave2.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+    end
+  end
+end
